@@ -10,6 +10,7 @@ import mongoSanitize from "express-mongo-sanitize";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 // ROUTES
 import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 await connectionToDb();
 const app = express();
@@ -36,6 +37,7 @@ app.get("/api/v1/tests", (req, res) => {
 
 // MAIN ROUTES
 app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/user", userRoutes);
 
 // ERROR Handlers
 app.use(notFound);
